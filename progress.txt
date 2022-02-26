@@ -1,0 +1,7 @@
+Dias 1 y 2 -> Diseñar la BD y hacer que funcione la integridad referencial.
+Dias 3 - 6 -> Empezar a crear los blade y que la información aparezca.
+Dias 7 - 11 -> Empezar a crear y planificar los CRUDS (4/4 acabados).
+Dias 11 - 13 -> Crear las sanciones correctamente e introducir registros en la BD sin repetirse si
+ya existen cuando un libro exceda la fecha esperada de devolución.
+Dias 13 - 14 -> Buscador de libros (en proceso).
+Dias 14 - 15 -> Buscador finalizado & Página de Contacto en Inicio.

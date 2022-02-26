@@ -15,12 +15,32 @@ class CreateSancionesTable extends Migration
     {
         Schema::create('sanciones', function (Blueprint $table) {
             $table->id();
-            $table->integer('idusuario');
-            $table->integer('codLibro');
-            $table->integer('idPrestamo');
+            $table->unsignedBigInteger('idusuario')->nullable();
+            $table->unsignedBigInteger('codLibro')->nullable();
+            $table->unsignedBigInteger('idPrestamo')->nullable();
             $table->string('observacion');
             $table->string('finPenalizacion');
             $table->timestamps();
+
+
+            //Foreign key declaration
+            $table->foreign('codLibro')
+                ->references('id')
+                ->on('libros')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->foreign('idusuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('set null')
+                ->onUpdate('set null');
+
+            $table->foreign('idPrestamo')
+                ->references('id')
+                ->on('prestamos')
+                ->onDelete('set null')
+                ->onUpdate('set null');
         });
     }
 

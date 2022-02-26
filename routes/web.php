@@ -42,6 +42,9 @@ Route::resource('prestamos', PrestamoController::class)->middleware('auth');
 
 Route::get('/sanciones', [sancionController::class,'index'])->middleware('auth');
 
+Route::get('/about', function () {
+    return view('about');
+});
 
 
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');

@@ -5,3 +5,4 @@ Dias 11 - 13 -> Crear las sanciones correctamente e introducir registros en la B
 ya existen cuando un libro exceda la fecha esperada de devolución.
 Dias 13 - 14 -> Buscador de libros (en proceso).
 Dias 14 - 15 -> Buscador finalizado & Página de Contacto en Inicio.
+Resto de días: Revisión final, añadir regla de no más de 2 préstamos / usuario && regla no poder pedir libros si tienes sanciones.

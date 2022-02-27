@@ -253,6 +253,8 @@ class PrestamoController extends Controller
             //$post->description = "Updated description";
             //return $post;
             $post->save();
+            return redirect()->route('prestamos.index')
+                ->with('success','Prestamo devuelto correctamente');
         }else{
             //La fecha no cambia por no ser nula.
         }
@@ -267,7 +269,7 @@ class PrestamoController extends Controller
         //return $user;
         if(sanciones::where('idPrestamo', '=', $prestamo->id)->exists()){
             return redirect()->route('prestamos.index')
-                ->with('success','El usuario ha sido sancionado con éxito.');
+                ->with('failure','El usuario ya fue sancionado anteriormente.');
         }else{
             if($prestamo->fechaDevolucion>$prestamo->fechaEsperada){
                 DB::table('sanciones')->insert([
@@ -281,10 +283,12 @@ class PrestamoController extends Controller
                 /*DB::table('prestamos')->update([
                    'fechaDevolucion' =>$now,
                 ]);*/
+                return redirect()->route('prestamos.index')
+                    ->with('success','Usuario sancionado correctamente.');
             }else{
                 //No hacer nada en caso contrario.
-            }return redirect()->route('prestamos.index')
-                ->with('success','Prestamo devuelto correctamente');
+            }//return redirect()->route('prestamos.index')
+                //->with('success','Prestamo devuelto correctamente');
         }
         /*$prestamo->delete();*/
     }

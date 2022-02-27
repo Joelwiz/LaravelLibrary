@@ -13,7 +13,7 @@
             {{ Session::get('failure') }}
         </div>
     @endif
-    
+
     <br><h3 style="text-align: center;color: #0a477e">Categorías de libros que posee la Bliblioteca</h3><br>
 
     <table class="table" style="width: 100%;">

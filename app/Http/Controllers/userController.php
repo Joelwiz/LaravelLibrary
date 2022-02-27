@@ -66,20 +66,27 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'username' => 'required|min:2|max:250',
             'name' => 'required|min:2|max:250',
             'email' => 'required|min:3|max:255',
             'password' => 'required|min:8|max:250',
         ]);
-        User::create([
-            'username'=>$request['username'],
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'role_id' => 2,
-        ]);
-        return redirect()->route('usuarios.index')->with('success','User creado correctamente');
+        //return $request->username;
+        $user = User::where('username', '=', $request->username)->first();
+        if ($user === null) {
+            User::create([
+                'username'=>$request['username'],
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'role_id' => 2,
+            ]);
+            return redirect()->route('usuarios.index')->with('success','User creado correctamente');
+        }else{
+            return redirect()->route('usuarios.index')->with('failure','User ya existe en la BD.');
+        }
     }
 
     /**

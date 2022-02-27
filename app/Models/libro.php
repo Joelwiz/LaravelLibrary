@@ -31,7 +31,7 @@ class libro extends Model
         return $this->belongsToMany(User::class,'prestamos','codLibro','idUsuario');
     }
 
-    public function categories()
+    public function categoria()
     {
         return $this->belongsTo(categoria::class);
     }

@@ -29,7 +29,7 @@
         <th class="col-8"></th>
         </thead>
         <tbody style="text-align: center">
-        @foreach($libros as $libro)
+        @foreach($tableUsers as $libro)
             <tr>
                 <td style="text-align: left">{{ $libro->ISBN }}</td>
                 <td style="text-align: left">{{ $libro->nombre }}</td>
@@ -37,7 +37,7 @@
                 <td style="text-align: left">{{ $libro->autor }}</td>
                 <td style="text-align: left">{{ $libro->editorial }}</td>
                 <td style="text-align: center">{{ $libro->numEjemplaresDisp }}</td>
-                <td style="text-align: left">{{ $libro->categoriaId }}</td>
+                <td style="text-align: left">{{ $libro->categoria_rol }}</td>
                 <td><a class="btn btn-sm btn-info" href="{{ route('libros.show',$libro->id) }}">Show</a><br><br>
                     @if(isset($user) && $user->role_id == 1)
                     <a class="btn btn-sm btn-primary" href="storage/pdf/PDF.pdf">Ver PDF</a><br><br>
@@ -54,7 +54,7 @@
         @endforeach
         </tbody>
     </table>
-    {{$libros -> links()}}
+    {{$tableUsers -> links()}}
     @if(isset($user) && $user->role_id == 1)
     <a class="btn btn-sm btn-success" style="width: 100%;" href="{{ route('libros.create') }}">Create</a><br><br>
     @endif

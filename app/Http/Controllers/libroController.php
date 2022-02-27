@@ -19,9 +19,16 @@ class libroController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $libros = libro::paginate(2);
+        //$libros = libro::paginate(4);
         Paginator::useBootstrap();
-        return view('libro.index',compact('libros','user'));
+
+
+        $tableUsers = libro::join('categorias', 'categorias.id', '=', 'libros.categoriaId')
+            ->select('libros.*', 'categorias.nombre as categoria_rol')
+            ->paginate(4);
+        //return $tableUsers;
+
+        return view('libro.index',compact('user','tableUsers'));
     }
 
     public function __construct(){

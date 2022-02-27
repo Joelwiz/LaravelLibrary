@@ -267,7 +267,7 @@ class PrestamoController extends Controller
         //return $user;
         if(sanciones::where('idPrestamo', '=', $prestamo->id)->exists()){
             return redirect()->route('prestamos.index')
-                ->with('failure','Prestamo ya ha sido devuelto anteriormente.');
+                ->with('success','El usuario ha sido sancionado con éxito.');
         }else{
             if($prestamo->fechaDevolucion>$prestamo->fechaEsperada){
                 DB::table('sanciones')->insert([

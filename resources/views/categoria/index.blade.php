@@ -2,6 +2,18 @@
 
 
 @section('content')
+
+    @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+    @if (Session::get('failure'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('failure') }}
+        </div>
+    @endif
+    
     <br><h3 style="text-align: center;color: #0a477e">Categorías de libros que posee la Bliblioteca</h3><br>
 
     <table class="table" style="width: 100%;">

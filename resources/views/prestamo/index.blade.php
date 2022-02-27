@@ -3,6 +3,17 @@
 
 @section('content')
 
+    @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+    @if (Session::get('failure'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('failure') }}
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>

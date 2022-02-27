@@ -129,7 +129,7 @@ class libroController extends Controller
             unset($input['imagen ']);
         }
         $libro->update($input);
-        return redirect()->route('libros.index')->with('success','Libro añadido correctamente');
+        return redirect()->route('libros.index')->with('success','Libro editado correctamente');
     }
 
     /**

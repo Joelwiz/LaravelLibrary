@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             ]);
             for($j=0;$j<rand(2,3);$j++){
                 DB::table('libros')->insert([
-                    'ISBN' =>$faker->regexify('[0-9]{13}'),
+                    'ISBN' =>$faker->regexify('[0-9]{9}'),
                     //'imagen'=>$faker->image('public/storage/images',640,480, null, false),
                     'imagen'=>"cover.jpg",
                     'nombre' =>$faker->sentence(rand(1,3)),
